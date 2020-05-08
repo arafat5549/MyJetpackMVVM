@@ -30,7 +30,7 @@ class HomeViewModel : CollectViewModel() {
      * 获取首页文章列表数据
      * @param isRefresh 是否是刷新，即第一页
      */
-    fun getHomeData(isRefresh: Boolean) {
+    fun reqHomeData(isRefresh: Boolean) {
         if (isRefresh) {
             pageNo = 0
         }
@@ -63,7 +63,7 @@ class HomeViewModel : CollectViewModel() {
     /**
      * 获取轮播图数据
      */
-    fun getBannerData() {
+    fun reqBannerData() {
         request({ homeRepository.getBannData() }, bannerData)
     }
 }

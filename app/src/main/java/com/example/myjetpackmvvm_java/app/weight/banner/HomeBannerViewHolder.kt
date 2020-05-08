@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.example.myjetpackmvvm_java.Const
 import com.example.myjetpackmvvm_java.R
 import com.example.myjetpackmvvm_java.data.entity.BannerResponse
 import com.zhpan.bannerview.holder.ViewHolder
@@ -24,7 +25,7 @@ class HomeBannerViewHolder : ViewHolder<BannerResponse> {
         data?.let {
             Glide.with(img.context.applicationContext)
                 .load(it.imagePath)
-                .transition(DrawableTransitionOptions.withCrossFade(500))
+                .transition(DrawableTransitionOptions.withCrossFade(Const.duration_crossfade))
                 .into(img)
         }
 

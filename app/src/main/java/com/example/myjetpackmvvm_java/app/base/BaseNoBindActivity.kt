@@ -2,10 +2,8 @@ package com.example.myjetpackmvvm_java.app.base
 
 import android.content.Context
 import android.content.res.Resources
-import android.os.Bundle
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.databinding.ViewDataBinding
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
 import com.afollestad.materialdialogs.customview.getCustomView
@@ -15,7 +13,7 @@ import com.example.myjetpackmvvm_java.app.AppViewModel
 import com.example.myjetpackmvvm_java.app.ext.getAppViewModel
 import com.example.myjetpackmvvm_java.app.util.SettingUtil
 import me.hgj.jetpackmvvm.BaseViewModel
-import me.hgj.jetpackmvvm.BaseVmDbActivity
+import me.hgj.jetpackmvvm.BaseVmActivity
 import me.jessyan.autosize.AutoSizeCompat
 
 /**
@@ -25,7 +23,7 @@ import me.jessyan.autosize.AutoSizeCompat
  * BaseVmActivity例如
  * abstract class BaseActivity<VM : BaseViewModel> : BaseVmActivity<VM>() {
  */
-abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding> : BaseVmDbActivity<VM, DB>() {
+abstract class BaseNoBindActivity<VM : BaseViewModel> : BaseVmActivity<VM>() {
 
     private var dialog: MaterialDialog? = null
     var mContext:Context?=null

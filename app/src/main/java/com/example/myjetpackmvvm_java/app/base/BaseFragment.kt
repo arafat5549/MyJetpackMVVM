@@ -1,5 +1,6 @@
 package com.example.myjetpackmvvm_java.app.base
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -25,7 +26,6 @@ import me.hgj.jetpackmvvm.BaseVmDbFragment
 abstract class BaseFragment<VM : BaseViewModel,DB:ViewDataBinding> : BaseVmDbFragment<VM,DB>() {
 
     private var dialog: MaterialDialog? = null
-
     val appViewModel: AppViewModel by lazy { getAppViewModel() }
 
     /**

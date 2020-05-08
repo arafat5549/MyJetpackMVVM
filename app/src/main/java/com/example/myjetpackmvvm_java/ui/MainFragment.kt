@@ -12,6 +12,9 @@ import com.example.myjetpackmvvm_java.app.ext.setUiTheme
 import com.example.myjetpackmvvm_java.app.util.SettingUtil
 import com.example.myjetpackmvvm_java.databinding.FragmentMainBinding
 import com.example.myjetpackmvvm_java.ui.home.HomeFragment
+import com.example.myjetpackmvvm_java.ui.test.JavaFragment
+import com.example.myjetpackmvvm_java.ui.test.TestFragment
+
 //import com.example.myjetpackmvvm_java.ui.me.MeFragment
 //import com.example.myjetpackmvvm_java.ui.project.ProjectFragment
 //import com.example.myjetpackmvvm_java.ui.publicNumber.PublicNumberFragment
@@ -26,6 +29,8 @@ class MainFragment : BaseFragment<BaseViewModel, FragmentMainBinding>() {
 
     var fragments = arrayListOf<Fragment>()
     private val homeFragment: HomeFragment by lazy { HomeFragment() }
+    private val testFragment: TestFragment by lazy { TestFragment() }
+    private val javaFragment: JavaFragment by lazy { JavaFragment() }
 //    private val projectFragment: ProjectFragment by lazy { ProjectFragment() }
 //    private val treeArrFragment: TreeArrFragment by lazy { TreeArrFragment() }
 //    private val publicNumberFragment: PublicNumberFragment by lazy { PublicNumberFragment() }
@@ -34,6 +39,7 @@ class MainFragment : BaseFragment<BaseViewModel, FragmentMainBinding>() {
     init {
         fragments.apply {
             add(homeFragment)
+            add(javaFragment)
 //            add(projectFragment)
 //            add(treeArrFragment)
 //            add(publicNumberFragment)

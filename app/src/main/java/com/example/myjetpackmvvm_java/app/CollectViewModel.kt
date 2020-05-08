@@ -3,6 +3,8 @@ package com.example.myjetpackmvvm_java.app
 import androidx.lifecycle.MutableLiveData
 import com.example.myjetpackmvvm_java.app.network.stateCallback.CollectUiState
 import com.example.myjetpackmvvm_java.app.network.stateCallback.ListDataUiState
+import com.example.myjetpackmvvm_java.data.bean.CollectResponse
+import com.example.myjetpackmvvm_java.data.bean.CollectUrlResponse
 import me.hgj.jetpackmvvm.BaseViewModel
 //import com.example.myjetpackmvvm_java.app.network.stateCallback.CollectUiState
 //import com.example.myjetpackmvvm_java.app.network.stateCallback.ListDataUiState
@@ -25,9 +27,9 @@ open class CollectViewModel : BaseViewModel() {
     //收藏网址
     val collectUrlUiState: MutableLiveData<CollectUiState> = MutableLiveData()
     //收藏de文章数据
-    //var ariticleDataState: MutableLiveData<ListDataUiState<CollectResponse>> = MutableLiveData()
+    var ariticleDataState: MutableLiveData<ListDataUiState<CollectResponse>> = MutableLiveData()
     //收藏de网址数据
-    //var urlDataState: MutableLiveData<ListDataUiState<CollectUrlResponse>> = MutableLiveData()
+    var urlDataState: MutableLiveData<ListDataUiState<CollectUrlResponse>> = MutableLiveData()
 
     /**
      * 收藏 文章

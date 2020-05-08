@@ -14,6 +14,7 @@ interface NetApiService {
 
     companion object {
         const val SERVER_URL = "https://wanandroid.com/"
+        const val SERVER_URL_LOCAL = "http://192.168.226.91/"
     }
 
     /**

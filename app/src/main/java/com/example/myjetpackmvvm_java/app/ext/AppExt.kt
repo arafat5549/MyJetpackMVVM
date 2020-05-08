@@ -15,7 +15,9 @@ import com.blankj.utilcode.util.Utils
 import com.example.myjetpackmvvm_java.App
 import com.example.myjetpackmvvm_java.app.AppViewModel
 import com.example.myjetpackmvvm_java.app.util.SettingUtil
+import com.example.myjetpackmvvm_java.ui.MessageViewmodel
 import me.hgj.jetpackmvvm.Ktx
+import me.hgj.jetpackmvvm.ext.getVmClazz
 import java.io.BufferedReader
 import java.io.FileReader
 import java.io.IOException
@@ -33,11 +35,11 @@ fun Fragment.getAppViewModel(): AppViewModel {
     }
 }
 
-//fun Fragment.getActivityMessageViewModel():MessageViewmodel{
-//    return  activity.let { it as AppCompatActivity
-//        ViewModelProvider(it).get(getVmClazz(it ) as Class<MessageViewmodel>)
-//    }
-//}
+fun Fragment.getActivityMessageViewModel(): MessageViewmodel {
+    return  activity.let { it as AppCompatActivity
+        ViewModelProvider(it).get(getVmClazz(it ) as Class<MessageViewmodel>)
+    }
+}
 
 
 /**

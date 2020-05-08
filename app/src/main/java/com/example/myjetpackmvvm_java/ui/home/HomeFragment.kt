@@ -17,6 +17,7 @@ import com.example.myjetpackmvvm_java.adapter.AriticleAdapter
 import com.example.myjetpackmvvm_java.app.base.BaseFragment
 import com.example.myjetpackmvvm_java.app.ext.*
 import com.example.myjetpackmvvm_java.app.util.CacheUtil
+import com.example.myjetpackmvvm_java.Const
 import com.example.myjetpackmvvm_java.app.weight.customview.CollectView
 import com.example.myjetpackmvvm_java.app.weight.banner.HomeBannerViewHolder
 import com.example.myjetpackmvvm_java.app.weight.loadCallBack.EmptyCallback
@@ -50,8 +51,8 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         loadsir = LoadServiceInit(swipeRefresh) {
             //点击重试时触发的操作
             loadsir.showCallback(LoadingCallback::class.java)
-            mViewModel.getBannerData()
-            mViewModel.getHomeData(true)
+            mViewModel.reqBannerData()
+            mViewModel.reqHomeData(true)
         }
         //初始化 toolbar
         toolbar.run {
@@ -71,7 +72,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             //因为首页要添加轮播图，所以我设置了firstNeedTop字段为false,即第一条数据不需要设置间距
             it.addItemDecoration(SpaceItemDecoration(0, ConvertUtils.dp2px(8f), false))
             footView = it.initFooter(SwipeRecyclerView.LoadMoreListener {
-                mViewModel.getHomeData(false)
+                mViewModel.reqHomeData(false)
             })
             //初始化FloatingActionButton
             it.initFloatBtn(floatbtn)
@@ -79,7 +80,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         //初始化 SwipeRefreshLayout
         swipeRefresh.init {
             //触发刷新监听时请求数据
-            mViewModel.getHomeData(true)
+            mViewModel.reqHomeData(true)
         }
         articleAdapter.run {
             setOnCollectViewClickListener(object :
@@ -102,7 +103,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             setNbOnItemClickListener { adapter, view, position ->
                 Navigation.findNavController(view)
                     .navigate(R.id.action_mainfragment_to_webFragment, Bundle().apply {
-                        putSerializable("ariticleData",articleAdapter.data[position-recyclerView.headerCount])
+                        putSerializable(Const.BK_ArticalData,articleAdapter.data[position-recyclerView.headerCount])
                     })
             }
             addChildClickViewIds(R.id.item_home_author)
@@ -126,9 +127,9 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         //设置界面 加载中
         loadsir.showCallback(LoadingCallback::class.java)
         //请求轮播图数据
-        mViewModel.getBannerData()
+        mViewModel.reqBannerData()
         //请求文章列表数据
-        mViewModel.getHomeData(true)
+        mViewModel.reqHomeData(true)
     }
 
     override fun createObserver() {
@@ -183,7 +184,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
                                     }.setOnPageClickListener {
                                         Navigation.findNavController(this).navigate(R.id.action_mainfragment_to_webFragment,
                                             Bundle().apply {
-                                                putSerializable("bannerdata",data[it])
+                                                putSerializable(Const.BK_BannerData,data[it])
                                             }
                                         )
                                     }.create(data.toList())

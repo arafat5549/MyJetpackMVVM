@@ -84,6 +84,7 @@ dependencies {
     implementation 'com.github.ittianyu:BottomNavigationViewEx:2.0.4'
     implementation 'com.github.goweii:RevealLayout:1.1.1'
     implementation 'com.tencent:mmkv:1.0.22'
+    implementation "com.google.guava:guava:$guavaVersion"
     //implementation project(path: ':JetpackMvvm')
     implementation 'me.hegj:JetpackMvvm:1.0.7'
     //thirdparty
@@ -95,7 +96,8 @@ dependencies {
     implementation 'com.google.android:flexbox:2.0.1'
     implementation 'com.just.agentweb:agentweb:4.1.2'
     implementation 'cat.ereza:customactivityoncrash:2.2.0'
-
+    implementation 'com.github.VictorAlbertos:RxActivityResult:0.5.0-2.x'
+    // implementation 'io.reactivex.rxjava2:rxjava:2.2.3'
     //test
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$testExtJunit"

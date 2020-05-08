@@ -23,6 +23,7 @@ import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.chad.library.adapter.base.BaseQuickAdapter
+import com.example.myjetpackmvvm_java.Const
 import com.example.myjetpackmvvm_java.R
 import com.example.myjetpackmvvm_java.app.util.CacheUtil
 import com.example.myjetpackmvvm_java.app.util.SettingUtil
@@ -322,7 +323,7 @@ fun hideSoftKeyboard(activity: Activity?) {
  * @param action 执行方法
  */
 var lastloginClickTime = 0L
-fun View.clickNoRepeatLogin(interval: Long = 500, action: (view: View) -> Unit) {
+fun View.clickNoRepeatLogin(interval: Long = Const.interval_item, action: (view: View) -> Unit) {
     setOnClickListener {
         val currentTime = System.currentTimeMillis()
         if (lastloginClickTime != 0L && (currentTime - lastloginClickTime < interval)) {
@@ -343,7 +344,7 @@ fun View.clickNoRepeatLogin(interval: Long = 500, action: (view: View) -> Unit) 
  * @param interval 时间间隔 默认0.5秒
  * @param action 执行方法
  */
-fun clickNoRepeatLogin(vararg view: View?,interval: Long = 500, action: (view: View) -> Unit) {
+fun clickNoRepeatLogin(vararg view: View?, interval: Long = Const.interval_item, action: (view: View) -> Unit) {
     view.forEach {
         it?.setOnClickListener {
             val currentTime = System.currentTimeMillis()

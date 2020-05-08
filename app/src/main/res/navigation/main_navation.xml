@@ -304,4 +304,9 @@
         android:name="com.example.myjetpackmvvm_java.ui.todo.AddTodoFragment"
         android:label="AddTodoFragment"/>
 
+    <fragment
+        android:id="@+id/javaFragment"
+        android:name="com.example.myjetpackmvvm_java.ui.test.JavaFragment"
+        android:label="JavaFragment"/>
+
 </navigation>

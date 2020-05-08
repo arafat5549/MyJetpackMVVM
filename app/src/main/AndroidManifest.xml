@@ -38,7 +38,7 @@
         </activity>
         <activity android:name=".ui.welcome.ErrorActivity"/>
         <activity android:name=".ui.test.TestActivity"/>
-
+        <activity android:name=".ui.test.JavaActivity"/>
         <!-- Arms 配置 -->
         <meta-data
             android:name="design_width_in_dp"

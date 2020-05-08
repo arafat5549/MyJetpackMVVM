@@ -2,7 +2,6 @@ package com.example.myjetpackmvvm_java.ui.web
 
 import android.content.Intent
 import android.net.Uri
-import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -22,6 +21,9 @@ import com.example.myjetpackmvvm_java.app.ext.hideSoftKeyboard
 import com.example.myjetpackmvvm_java.app.ext.initClose
 import com.example.myjetpackmvvm_java.app.ext.showMessage
 import com.example.myjetpackmvvm_java.app.util.CacheUtil
+import com.example.myjetpackmvvm_java.Const
+import com.example.myjetpackmvvm_java.data.bean.CollectResponse
+import com.example.myjetpackmvvm_java.data.bean.CollectUrlResponse
 import com.example.myjetpackmvvm_java.data.entity.*
 import com.example.myjetpackmvvm_java.data.entity.AriticleResponse
 import com.example.myjetpackmvvm_java.data.enums.CollectType
@@ -56,7 +58,8 @@ class WebFragment : BaseFragment<CollectViewModel, FragmentWebBinding>() {
         setHasOptionsMenu(true)
         arguments?.run {
             //点击文章进来的
-            getSerializable("ariticleData")?.let {
+
+            getSerializable(Const.BK_ArticalData)?.let {
                 it as AriticleResponse
                 ariticleId = it.id
                 showTitle = it.title
@@ -65,7 +68,7 @@ class WebFragment : BaseFragment<CollectViewModel, FragmentWebBinding>() {
                 collectType = CollectType.Ariticle.type
             }
             //点击首页轮播图进来的
-            getSerializable("bannerdata")?.let {
+            getSerializable(Const.BK_BannerData)?.let {
                 it as BannerResponse
                 ariticleId = it.id
                 showTitle = it.title
@@ -73,24 +76,24 @@ class WebFragment : BaseFragment<CollectViewModel, FragmentWebBinding>() {
                 url = it.url
                 collectType = CollectType.Url.type
             }
-//            //从收藏文章列表点进来的
-//            getSerializable("collect")?.let {
-//                it as CollectResponse
-//                ariticleId = it.originId
-//                showTitle = it.title
-//                collect = true //从收藏列表过来的，肯定 是 true 了
-//                url = it.link
-//                collectType = CollectType.Ariticle.type
-//            }
-//            //点击收藏网址列表进来的
-//            getSerializable("collectUrl")?.let {
-//                it as CollectUrlResponse
-//                ariticleId = it.id
-//                showTitle = it.name
-//                collect = true//从收藏列表过来的，肯定 是 true 了
-//                url = it.link
-//                collectType = CollectType.Url.type
-//            }
+            //从收藏文章列表点进来的
+            getSerializable("collect")?.let {
+                it as CollectResponse
+                ariticleId = it.originId
+                showTitle = it.title
+                collect = true //从收藏列表过来的，肯定 是 true 了
+                url = it.link
+                collectType = CollectType.Ariticle.type
+            }
+            //点击收藏网址列表进来的
+            getSerializable("collectUrl")?.let {
+                it as CollectUrlResponse
+                ariticleId = it.id
+                showTitle = it.name
+                collect = true//从收藏列表过来的，肯定 是 true 了
+                url = it.link
+                collectType = CollectType.Url.type
+            }
         }
         toolbar.run {
             //设置menu 关键代码

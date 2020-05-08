@@ -7,6 +7,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.chad.library.adapter.base.BaseDelegateMultiAdapter
 import com.chad.library.adapter.base.delegate.BaseMultiTypeDelegate
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
+import com.example.myjetpackmvvm_java.Const
 import com.example.myjetpackmvvm_java.R
 import com.example.myjetpackmvvm_java.app.ext.setAdapterAnimion
 import com.example.myjetpackmvvm_java.app.util.SettingUtil
@@ -113,7 +114,7 @@ class AriticleAdapter(data: MutableList<AriticleResponse>?) :
                     }
                     helper.getView<CollectView>(R.id.item_project_collect).isChecked = collect
                     Glide.with(context.applicationContext).load(envelopePic)
-                        .transition(DrawableTransitionOptions.withCrossFade(500))
+                        .transition(DrawableTransitionOptions.withCrossFade(Const.duration_crossfade))
                         .into(helper.getView(R.id.item_project_imageview))
                 }
                 helper.getView<CollectView>(R.id.item_project_collect)

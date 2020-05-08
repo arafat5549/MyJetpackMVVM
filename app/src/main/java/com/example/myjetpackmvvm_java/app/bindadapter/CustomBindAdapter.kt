@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
+import com.example.myjetpackmvvm_java.Const
 import com.example.myjetpackmvvm_java.app.weight.preference.MyColorCircleView
 import me.hgj.jetpackmvvm.ext.view.textString
 
@@ -44,7 +45,7 @@ object CustomBindAdapter {
     fun imageUrl(view: ImageView, url: String) {
         Glide.with(view.context.applicationContext)
             .load(url)
-            .transition(DrawableTransitionOptions.withCrossFade(500))
+            .transition(DrawableTransitionOptions.withCrossFade(Const.duration_crossfade))
             .into(view)
     }
 
@@ -54,7 +55,7 @@ object CustomBindAdapter {
         Glide.with(view.context.applicationContext)
             .load(url)
             .apply(RequestOptions.bitmapTransform(CircleCrop()))
-            .transition(DrawableTransitionOptions.withCrossFade(500))
+            .transition(DrawableTransitionOptions.withCrossFade(Const.duration_crossfade))
             .into(view)
     }
     @BindingAdapter(value = ["colorCircleViewColor"])

@@ -14,6 +14,8 @@ import com.example.myjetpackmvvm_java.R
 import com.example.myjetpackmvvm_java.app.base.BaseFragment
 import com.example.myjetpackmvvm_java.app.ext.*
 import com.example.myjetpackmvvm_java.app.util.CacheUtil
+import com.example.myjetpackmvvm_java.Const
+import com.example.myjetpackmvvm_java.adapter.SearchResultAdapter
 import com.example.myjetpackmvvm_java.app.weight.customview.CollectView
 import com.example.myjetpackmvvm_java.app.weight.loadCallBack.EmptyCallback
 import com.example.myjetpackmvvm_java.app.weight.loadCallBack.ErrorCallback
@@ -36,7 +38,12 @@ class SearchResultFragment : BaseFragment<SearchViewModel, FragmentSearchResultB
     private var searchKey = ""
 
     //适配器
-    private val articleAdapter: SearchResultAdapter by lazy { SearchResultAdapter(arrayListOf(), true) }
+    private val articleAdapter: SearchResultAdapter by lazy {
+        SearchResultAdapter(
+            arrayListOf(),
+            true
+        )
+    }
 
     //界面状态管理者
     private lateinit var loadsir: LoadService<Any>
@@ -95,7 +102,7 @@ class SearchResultFragment : BaseFragment<SearchViewModel, FragmentSearchResultB
             setNbOnItemClickListener { adapter, view, position ->
                 NavHostFragment.findNavController(this@SearchResultFragment)
                     .navigate(R.id.action_searchResultFragment_to_webFragment, Bundle().apply {
-                        putSerializable("ariticleData", articleAdapter.data[position])
+                        putSerializable(Const.BK_ArticalData, articleAdapter.data[position])
                     })
             }
             addChildClickViewIds(R.id.item_home_author)
